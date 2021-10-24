@@ -141,21 +141,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-
         outState.putString("queryToSave",queryToSave)
-        outState.putBoolean("FLAG",FLAG)
-
         super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         queryToSave= savedInstanceState.getString("queryToSave").toString()
-
         val request = ServiceBuilder.buildService(ApiInterface::class.java)
-
         getData(request,queryToSave)
-
 
     }
 
