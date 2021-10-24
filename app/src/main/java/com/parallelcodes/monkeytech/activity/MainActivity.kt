@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private var queryToSave : String = ""
     private var recyclerView:RecyclerView ? = null
     private var gridLayoutManager:GridLayoutManager ? = null
-    private var giphy2Adapter:GifAdapter ? = null
+    private var giphyAdapter:GifAdapter ? = null
     private var mBackgroundSound : BackgroundSound? = null
     private var FLAG : Boolean = false
     private var dataList : List<GiphySearchImagePoko.GiphySearchDatum> ?= null
@@ -166,16 +166,16 @@ class MainActivity : AppCompatActivity() {
                     dataList=output
                     if(!FLAG){
 
-                        giphy2Adapter = GifAdapter(
+                        giphyAdapter = GifAdapter(
                             context = this@MainActivity,
                             data = output
                         )
-                        recyclerView?.adapter=giphy2Adapter
+                        recyclerView?.adapter=giphyAdapter
                         FLAG=true
                     }
                     else{
-                        giphy2Adapter?.setDataList(output)
-                        giphy2Adapter?.notifyDataSetChanged()
+                        giphyAdapter?.setDataList(output)
+                        giphyAdapter?.notifyDataSetChanged()
                     }
             }
         })
